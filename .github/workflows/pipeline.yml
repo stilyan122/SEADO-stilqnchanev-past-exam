@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  build_and_unit_test:
 
     runs-on: ubuntu-latest
     steps:
@@ -17,3 +17,7 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
+    - name: Install NPM Dependencies
+      run: npm install
+    - name: Run Unit Tests
+      run: npm run test:unit
